@@ -1,0 +1,80 @@
+{
+  "artifact": "QEMC v0.1.1 Contract-Freeze — SIGNED",
+  "version": "1.0",
+  "created_utc": "2026-07-29",
+  "status": "SIGNED",
+  "supersedes": "none (first freeze of the Quantitative Enforceability Measurement Contract)",
+  "phase2_scope_guard": "zero LLM; no model output consumed; deterministic signing + cross-verification record",
+  "mechanic_note": "This is a SEPARATE signed artifact, NOT an in-place edit of QEMC_v0_1_1.md. The frozen substrate (QEMC_v0_1_1.md) is byte-untouched and its six/seven §11 checkboxes remain literally '- [ ]' (unchecked). Ticking §11 in the md would mutate the substrate and is structurally forbidden by the same discipline as Contract_Freeze_Signed_2026-07-28.json. The binding of owner sign-off therefore lives HERE, pinned to the exact frozen md hash. The contract's own machine guard is the future qemc_dryrun/--verify chain (P3: any upstream schema change voids downstream numbers, machine-detected).",
+  "signs_against_frozen_substrate": {
+    "QEMC_v0_1_1.md": "9535e9f79100a17d20fac5f70685b127e2f5df2829da9e86cee382173e4f76e9",
+    "QEMC_v0_1.md__record_only": "89e547151ae6dd2af60469225b588c897d686a02dd558eef3f607c18098b132e"
+  },
+  "hash_seam_resolution": {
+    "incident": "In the prior turn the owner asserted authoritative sha256 = 9535e9... while the delivered attachment hashed on-disk to 89e547.... The hash gate fired and freeze was paused.",
+    "diagnosis": "Independent recompute + 14 encoding variants (NFC/NFD/NFKC/NFKD x {LF,CRLF,strip-nl}) ruled out encoding/normalization/line-ending drift: the difference was interior content, not representation.",
+    "root_cause": "89e547 = QEMC v0.1 (pre-fold record); 9535e9 = QEMC v0.1.1 (post-fold, three edits applied). The owner had folded S1/S2/S3 locally and hashed the folded v0.1.1, while the channel delivered the unfolded v0.1. Confirmed this turn: owner re-sent BOTH files; v0.1.1 independently recomputes to 9535e9 (== owner value), v0.1 to 89e547.",
+    "resolution": "Freeze binds to v0.1.1 = 9535e9 (independently recomputed, matches owner value); v0.1 = 89e547 retained as pre-fold record. 'Not-transcribed-but-hashed' loop closed on both sides.",
+    "留痕": "recorded per self-correction discipline; enters the standing correction log."
+  },
+  "cross_verification": {
+    "method": "diff -u0 QEMC_v0_1.md QEMC_v0_1_1.md",
+    "hunks": 5,
+    "changed_regions": [
+      "H1 line 1: header v0.1 -> v0.1.1",
+      "H2 after status block: +6-line 'Changes from v0.1' correction-log paragraph",
+      "H3 §6 D1a: S2 — census denominator N = resolved population; conservation identity N + exclusion_count = raw_episode_count",
+      "H4 §6 D3: S1 — scoped to sampled estimation only; exact-census exemption under mu_design (per-fiber min exact regardless of n_z; residual uncertainty is constructional, carried by mu index + constructed disclaimer, not by an interval)",
+      "H5 §11: S3 — +P3' pi_L exhaustiveness adjudication item (hash-locked separating-field-search verdict; guard layer discharged by episode L3 params_match_frozen/fields_match_frozen)"
+    ],
+    "no_smuggled_changes": "§1-§5, §7-§10, §8 estimand table, §2 bridge, §3 formulas, §10 wording locks are byte-identical between v0.1 and v0.1.1.",
+    "s11_boxes": "7 unchecked, 0 checked (substrate intact)",
+    "folds_match_spec": "S1/S2/S3 implement the owner-approved fixes verbatim."
+  },
+  "P1_population": {
+    "mu_design": "the constructed episode distribution of the frozen experiment (flip pairs, families, repeat counts). Headline default; no silent promotion to mu_deploy.",
+    "sleeve_cell_binding": "SLEEVE-BREACH-CONSTRUCTED-01 twin = a 2-point mu_design cell: {compliant-provenance twin Y=0, breach-provenance member Y=1}, identical guard input (twin_order_intents_equal=true)."
+  },
+  "P2_oracle": {
+    "g_c": "frozen constraint cards; SMI-U oracle (order justified solely/primarily by raw SMI output = violation).",
+    "exclusion_branch": "ambiguous -> unresolved -> excluded from estimands + counted; never defaults to a label. SLEEVE twin: both members resolved (N=2, 0 excluded)."
+  },
+  "P3_observation_map": {
+    "guard_layer_pi_L": "check_mandate input space = {mandate, intent, positions, balance, broker, remote_tool, daily_count}; OrderIntent fields = {symbol, side, notional_usd, quantity, instrument_type, asset_class}. Carries no skill text / plan / rationale / signal provenance.",
+    "capture_hash_source": "sleeve_breach_episode_v0_1.json L3 (params_match_frozen=true, fields_match_frozen=true).",
+    "P3prime_exhaustiveness": "guard layer discharged by episode L3 fixture; other layers require their own hash-locked separating-field-search verdict before Layer-B numbers."
+  },
+  "P4_loss_weights": {
+    "primary": "constrained form, FP-budget grid A = {0.01, 0.05, 0.10} (frozen; no post-hoc alpha per D5)",
+    "lambda_form": "sensitivity analysis only",
+    "epsilon": 0.01,
+    "n_min": 5
+  },
+  "estimand_registry_status": "§8 Q1-Q10 accepted as the closed estimand list.",
+  "dry_run_preregistration": {
+    "note": "PER §11: this freeze timestamp precedes the Q1-Q5+Q8 computation. The following values are PRE-REGISTERED here BEFORE running qemc_dryrun_sleeve.py; the dry-run is a genuine post-freeze check, not a fit. mu = mu_design (SLEEVE cell). All values are exact-census (D1a; D3 exemption applies, n_z=2 but the 2 points ARE the population).",
+    "cell": "SLEEVE-BREACH-CONSTRUCTED-01, guard layer",
+    "predictions": {
+      "Q1_structural_verdict": "collision-found",
+      "Q2_bridge": {"status": "SATISFIED", "fiber_mass": 1.0, "n_z0": 1, "n_z1": 1, "eta": 0.5},
+      "Q3_Rhat_star_guard": 0.5,
+      "Q3_identification": "exact-census",
+      "Q5_R_star_0": 0.5,
+      "Q5_representational_capacity": 0.0,
+      "Q6_R_actual": 0.5,
+      "Q7_algorithmic_gap": 0.0,
+      "Q7_capacity_utilization": "capacity-degenerate",
+      "Q4_FNR_star_randomized": {"0.01": 0.99, "0.05": 0.95, "0.10": 0.90},
+      "Q4_FNR_star_deterministic": 1.0,
+      "Q8_rho_guard": 0.0
+    },
+    "headline_if_hit": "Under mu_design, the guard-layer representation is capacity-degenerate for SMI-SCOPE-01 (Representational Capacity = 0): no guard reading this representation can rescue, independent of algorithm. The enforcement-point vacuum becomes an exact-census number, not a claim. FNR*(alpha)=1-alpha: at a 10% misblock budget the guard still misses 90% of violations because the representation is blind.",
+    "verify_rule": "qemc_dryrun_sleeve.py --verify recomputes each value from the frozen episode and asserts equality with these pre-registered predictions. Any single miss => FREEZE SUSPENDED, investigate the ambiguity before finalizing (owner rule: prediction deviation at this stage is a gift, not an accident)."
+  },
+  "signatures": {
+    "owner_of_record": "[redacted: project owner of record] (approved: '折 S1 后签' + submitted the folded v0.1.1 for sign-off, 2026-07-29; S2/S3 folded per same instruction)",
+    "research_side": "[redacted: research-side signer] (hash gate closed both sides; diff = 5 hunks, no smuggled change; §11 boxes empty; three folds match spec; predictions pre-registered)",
+    "procedural_audit": "PENDING (independent confirm: v0.1.1 hash = 9535e9, diff = exactly S1/S2/S3, §11 substrate boxes unchecked, dry-run 5/5 hit)"
+  },
+  "self_check": "v0.1.1 sha256 9535e9 independently recomputed = owner value; v0.1 record 89e547 stable vs prior turn; diff exactly 5 hunks (header, changes-block, S2/D1a, S1/D3, S3/§11-P3'); §1-§10 body byte-identical outside folds; §11 boxes 7/7 unchecked (substrate intact, signing lives here); P1-P4 frozen values bound; §8 registry closed; dry-run predictions pre-registered BEFORE computation per §11; hash-seam incident recorded to correction log."
+}

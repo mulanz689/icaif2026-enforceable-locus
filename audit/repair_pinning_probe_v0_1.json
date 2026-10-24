@@ -1,0 +1,33 @@
+{
+  "probe_id": "REPAIR-1-PINNING-v0.1",
+  "role": "constructed authoring-level mitigation probe; deterministic; pinned snapshot bytes untouched (variant built in memory)",
+  "commit": "dddf96e35d511328b44a4307df0fb1cf49433e8d",
+  "skill": "social-media-intelligence",
+  "intervention": "duplicate terminal authoritative scope line to first line of body (position pinning); one authoring line",
+  "pipeline": "identical to smi_probe_frozen_v0_1 (real parser/wrapper/serializer/slice)",
+  "cross_lock": {
+    "raw_sha256_bytes": "ef47bebc4872403be09d44569cf7ae77fed17100a7b1641d83f44d64afb81083",
+    "baseline_a1_full_sha256": "92b5a36630df0776578730b3c55a1850b8ad9a39d583ba12d878b0add3d9f54d",
+    "baseline_a1_native_sha256": "cf5a3d49f0c09e25315bbf8f95a3c2f81c60eeca8ab150c285fa381c873d321f",
+    "matches_frozen_probe": true
+  },
+  "baseline": {
+    "scope_in_a1_native": false,
+    "scope_offset_in_envelope_cp": 42629,
+    "envelope_cp": 42678
+  },
+  "repaired": {
+    "scope_in_a1_native": true,
+    "scope_offset_in_envelope_cp": 120,
+    "envelope_cp": 42766,
+    "a1_full_sha256": "d1a9383a48f124db1fd08d303311680680bec8914f99f1103f27da675c8f9dc0",
+    "a1_native_sha256": "a955b80158af832a43b435d5d2ab00845c44031a197c614adc476e6eaa984bec"
+  },
+  "flip": {
+    "scope_in_a1_native": [
+      false,
+      true
+    ]
+  },
+  "honesty": "This certifies AVAILABILITY repair only (delivery through materialization). It makes no claim about behavioral compliance (efficacy) and no claim about the guard layer, whose representational blindness is position-independent."
+}

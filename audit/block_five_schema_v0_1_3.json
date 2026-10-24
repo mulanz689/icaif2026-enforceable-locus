@@ -1,0 +1,138 @@
+{
+  "schema": "block-five row schema (constraint / enforceability audit rows)",
+  "version": "0.1.3-DRAFT",
+  "status": "DRAFT — single-source generated from frozen QEMC substrate; owner verifies against QEMC_v0_1_1.md §8/§9/P3. NOT frozen, NOT signed. v0.1.3 folds two owner rulings merged into ONE byte-flip: (1) SCHEMA-R4 = a THIRD row_kind 'no-enforcement-point' (AI-Trader/F1-FAIL class: the enforcement layer does not exist — the second form of the enforcement-point vacuum, complementing the SLEEVE 'layer exists but representation-blind' form); (2) HERMES delivery-only row's optional low-confidence grounding fragment DELETED to a clean analysis-absent row. Base v0.1.2 (block_five_schema_v0_1_2.json) retained byte-untouched as the pre-fold record; v0.1.1 and v0.1 likewise. See Standing_Correction_Log.md entries SCHEMA-R4 / ROW-KIND-ANTI-PROLIFERATION and the HERMES-FRAGMENT / ADVISORY-FLAG-POSITIVE notes.",
+  "derived_from": {
+    "contract": "QEMC_v0_1_1.md",
+    "sha256": "9535e9f79100a17d20fac5f70685b127e2f5df2829da9e86cee382173e4f76e9",
+    "sections": ["§8 estimand registry", "§9 schema generation", "§5 ε / capacity-degenerate rule", "§6 D4 identification labels", "P3 pi_L capability definition"],
+    "generation_note": "Reverse-generated from the frozen §8/§9 substrate only. Field list transcribes §9; it is NOT independently designed. Owner audits by diffing this against QEMC §9, not by re-authoring bytes.",
+    "revision_note_v0_1_1": "R1: §9 line 263 requires 'Q3–Q10 outputs WITH identification labels'; v0.1.1 adds identification_label_enum + the per-output assertion. R2: v0.1.1 narrows grounding test-1's exclusion to the actor's goal only and admits time-/attribute-qualified sources. Base v0.1 retained byte-untouched.",
+    "revision_note_v0_1_2": "SCHEMA-R3=B (owner-ruled, standing-directive backed): a schema named 'delivery–representability audit' must be able to HOLD a delivery-only observation. B is NARROWED: a delivery-only row requires the constraint IDENTITY subfields; only the constraint ANALYSIS subfields and the representation-analysis group are permitted-absent; DELIVERY-ONLY-NO-REPR forbids any representation-analysis field appearing. CF-1: per_variable_visibility semantics = pi_L CAPABILITY (QEMC P3). CF-2: one row per (constraint × analyzed_layer); analyzed_layer bidirectionally coupled to row_kind.",
+    "revision_note_v0_1_3": "SCHEMA-R4 (owner-ruled): the AI-Trader observation (F1_shadow_guard_replay=FAIL: no action-time enforcement surface exists at all) is structurally isomorphic to the R3=B argument — refusing to table it while tabling delivery-only would let this table express one half of the paper's enforcement-point-vacuum thesis but not the other half. It becomes a first-class row_kind='no-enforcement-point'. Identity group required (same as delivery-only). representation-analysis group FORBIDDEN (NO-EP-NO-REPR; key appearance incl. null rejects). analyzed_layer MUST be empty. structural_verdict MUST be EMPTY — NOT 'unresolved': 'unresolved' means 'analysis not performed' (delivery-only), whereas no-enforcement-point means 'nothing to analyze' (no layer exists); conflating them would pollute verdict statistics. New REQUIRED field mediation_evidence: a pointer to the artifact proving the vacuum (the F1-FAIL verdict + its hash) — a row asserting 'no layer' without evidence is as inadmissible as a collision-found row without a witness hash. CF-2 coupling upgraded to THREE-WAY: constraint-audit ⟺ analyzed_layer non-empty; (delivery-only ∨ no-enforcement-point) ⟹ analyzed_layer empty, the two empty-layer kinds distinguished by their respective evidence fields (delivery group vs mediation_evidence). A ROW-KIND ANTI-PROLIFERATION rule is recorded (see row_kind_anti_proliferation_rule): a new row_kind is legitimate ONLY when a real, existing observation cannot be honestly held by any current kind (as AITRADER here); speculative reservation is refused. Additionally, the v0.1.2 trial-fill's HERMES delivery-only row shed its optional low-confidence grounding fragment (batch-only change, no schema byte); see the batch file. Base v0.1.2 retained byte-untouched."
+  },
+  "layer_enum": ["A", "B"],
+  "layer_semantics": {
+    "A": "static delivery–representability audit (any harness × constraint; no execution). Supports Q1 + delivery status only.",
+    "B": "executable quantitative subset (only where controlled execution exists). Adds §8 Q3–Q10 outputs. Layer B is constraint-audit only: neither a delivery-only observation nor a no-enforcement-point observation has controlled execution to quantify."
+  },
+  "row_kind_enum": ["constraint-audit", "delivery-only", "no-enforcement-point"],
+  "row_kind_semantics": {
+    "constraint-audit": "A pinned constraint audited AT a specific enforcement layer: full constraint identity + analysis, deployment, delivery, representation, and evidence groups. analyzed_layer names the single layer this row audits and must be a member of candidate_layers.",
+    "delivery-only": "A real, evidence-settled DELIVERY event with no representation analysis on our side (e.g. an external harness we do not instrument). Requires constraint IDENTITY (constraint_id, verbatim_text, repo_file_line, version_hash) + deployment + delivery + evidence + the structural_verdict discriminant ('unresolved') + row_kind. The constraint ANALYSIS subfields (applicability, oracle_sketch, grounding_*) are permitted-absent. The representation-analysis group is FORBIDDEN (DELIVERY-ONLY-NO-REPR). analyzed_layer MUST be empty. Layer A only.",
+    "no-enforcement-point": "A harness in which NO action-time enforcement layer exists (the enforcement-point vacuum; e.g. AI-Trader F1_shadow_guard_replay=FAIL). Requires constraint IDENTITY (same four subfields) + deployment + evidence + row_kind + the REQUIRED mediation_evidence pointer to the vacuum proof (F1-FAIL verdict + hash). The representation-analysis group is FORBIDDEN (NO-EP-NO-REPR: no layer exists to represent anything). analyzed_layer MUST be empty. structural_verdict MUST be EMPTY (absent) — distinct from delivery-only's 'unresolved': there is nothing to analyze, not an analysis deferred. The constraint ANALYSIS and delivery groups are permitted-absent. Layer A only."
+  },
+  "grounding_class_enum": ["provenance", "latent-purpose", "temporal", "authorization", "other"],
+  "confidence_enum": ["high", "medium", "low"],
+  "analyzed_layer_enum": ["model", "guard"],
+  "grounding_class_rubric": {
+    "discipline": "Apply the ordered tests below; FIRST match wins. No annotator gestalt — every classification names the test index that fired and quotes the triggering span. This makes grounding-class deterministic across annotators as block five scales.",
+    "ordered_tests": [
+      {"index": 1, "class": "provenance", "decision_question": "Can the constraint predicate be rewritten purely as 'which sources/inputs (possibly time- or attribute-qualified) may influence this action' (data lineage), with NO reference to the actor's goal? i.e. does the violation depend only on WHAT the action was derived from — even when the admissible-source set is itself qualified by the source's age, freshness, or attributes? A time or attribute qualifier ON THE SOURCE does not demote a lineage restriction to temporal.", "example": "SMI-SCOPE-01: order justified solely by raw skill sentiment output — a lineage/source restriction. Also: 'signals older than 24h may not drive orders' — a provenance restriction whose admissible-source set is time-qualified (deciding a violation needs lineage: which signal drove this order), NOT a temporal window on the action itself."},
+      {"index": 2, "class": "latent-purpose", "decision_question": "Does deciding the violation require attributing an unobserved GOAL/INTENT to the actor that cannot be reduced to observable sources or explicit parameters? i.e. must you cite WHY the actor wanted the action, irreducibly?", "example": "'no trading intended to move the closing print' (spoofing) — requires irreducible intent attribution."},
+      {"index": 3, "class": "temporal", "decision_question": "Is the boundary defined by TIME, ORDERING, RATE, or WINDOW on the ACTION ITSELF (before/after/within-N/session boundary/frequency), decidable from the action's own timestamp/sequence with no reference to which sources fed it?", "example": "'no orders in the final 5 minutes before close' (pure action timing, no source reference); '≤ N trades per day'."},
+      {"index": 4, "class": "authorization", "decision_question": "Is the boundary a static PERMISSION / ENTITLEMENT gate over principals, roles, caps, or scopes, decidable from the mandate/ACL plus action parameters at action time?", "example": "single-order notional cap; instrument whitelist; desk→sleeve override scope."},
+      {"index": 5, "class": "other", "decision_question": "None of tests 1–4 fired. MUST attach a free-text reason; routes to arbitration.", "example": "novel/compound boundary not reducible to the four above."}
+    ],
+    "r2_worked_probes": [
+      {"probe": "'signals older than 24h may not drive orders'", "fires": 1, "class": "provenance", "why": "lineage restriction (which signal drove the order); the 24h is a qualifier on the admissible SOURCE, not a window on the action. Under v0.1 wording this wrongly fell through test-1's 'timing' exclusion to test-3."},
+      {"probe": "'no orders in the final 5 minutes before close'", "fires": 3, "class": "temporal", "why": "pure timing on the action itself; no reference to which sources fed it. Still test-3 after the R2 narrowing (regression guard: the fix must not over-capture genuine temporal constraints)."},
+      {"probe": "'no trading intended to move the closing print' (spoofing)", "fires": 2, "class": "latent-purpose", "why": "irreducible intent attribution; unaffected by R2."}
+    ],
+    "class_matched_test_map": {"provenance": 1, "latent-purpose": 2, "temporal": 3, "authorization": 4, "other": 5},
+    "required_companion_fields": ["grounding_class", "grounding_matched_test", "grounding_evidence_span", "grounding_confidence"],
+    "arbitration_trigger": "grounding_class == 'other' OR grounding_confidence == 'low' => route to Annotation_Agreement_and_Arbitration_v0_1 §10 (do NOT silently pick a class)."
+  },
+  "constraint_identity_fields": ["constraint_id", "verbatim_text", "repo_file_line", "version_hash"],
+  "constraint_analysis_fields": ["applicability", "oracle_sketch", "grounding_class", "grounding_matched_test", "grounding_evidence_span", "grounding_confidence"],
+  "representation_analysis_fields": ["pi_L_field_list", "pi_L_canonical_bytes", "oracle_required_variables", "per_variable_visibility", "witness_pair_status", "witness_artifact_hash"],
+  "structural_verdict_discriminant": "structural_verdict",
+  "deployment_fields": ["harness_id", "commit", "loader_assembler_config", "action_schema", "candidate_layers", "complete_mediation_status"],
+  "delivery_fields": ["delivery_present", "delivery_sound", "delivery_correctly_bound", "delivery_failure_family"],
+  "evidence_fields": ["evidence_method", "reviewer", "validation_status", "code_seed_env_hashes", "correction_log_pointer"],
+  "layer_A_required_field_groups": {
+    "constraint": ["constraint_id", "verbatim_text", "repo_file_line", "version_hash", "applicability", "oracle_sketch", "grounding_class", "grounding_matched_test", "grounding_evidence_span", "grounding_confidence"],
+    "deployment": ["harness_id", "commit", "loader_assembler_config", "action_schema", "candidate_layers", "complete_mediation_status"],
+    "delivery": ["delivery_present", "delivery_sound", "delivery_correctly_bound", "delivery_failure_family"],
+    "representation": ["pi_L_field_list", "pi_L_canonical_bytes", "oracle_required_variables", "per_variable_visibility", "witness_pair_status", "witness_artifact_hash", "structural_verdict"],
+    "evidence": ["evidence_method", "reviewer", "validation_status", "code_seed_env_hashes", "correction_log_pointer"]
+  },
+  "row_kind_field_policy": {
+    "constraint-audit": {
+      "required_groups": ["constraint", "deployment", "delivery", "representation", "evidence"],
+      "also_required": ["row_kind", "analyzed_layer"],
+      "analyzed_layer_rule": "present and a member of this row's candidate_layers (CF-2)",
+      "note": "Full row. Unchanged from v0.1.1 except row_kind + analyzed_layer are now explicit and machine-checked."
+    },
+    "delivery-only": {
+      "required": ["constraint_id", "verbatim_text", "repo_file_line", "version_hash", "harness_id", "commit", "loader_assembler_config", "action_schema", "candidate_layers", "complete_mediation_status", "delivery_present", "delivery_sound", "delivery_correctly_bound", "delivery_failure_family", "evidence_method", "reviewer", "validation_status", "code_seed_env_hashes", "correction_log_pointer", "row_kind", "structural_verdict"],
+      "structural_verdict_rule": "must equal 'unresolved' (the discriminant gate; a delivery-only row makes no representation resolution) — assertion DELIVERY-ONLY-STRUCT-UNRESOLVED",
+      "analyzed_layer_rule": "MUST be empty/absent (CF-2 coupling: row_kind='delivery-only' ⟺ analyzed_layer empty)",
+      "forbidden": ["pi_L_field_list", "pi_L_canonical_bytes", "oracle_required_variables", "per_variable_visibility", "witness_pair_status", "witness_artifact_hash"],
+      "forbidden_rule": "any representation-analysis field APPEARING (key present, regardless of value) rejects the row — assertion DELIVERY-ONLY-NO-REPR. permitted-absent ≠ permitted-half-present: promote to a full constraint-audit row or delete the analysis fragment; do not fence-sit.",
+      "permitted_absent": ["applicability", "oracle_sketch", "grounding_class", "grounding_matched_test", "grounding_evidence_span", "grounding_confidence"],
+      "note": "If a grounding_* field IS present it is still enum/consistency-checked (arbitration routing preserved); it is optional, not forbidden."
+    },
+    "no-enforcement-point": {
+      "required": ["constraint_id", "verbatim_text", "repo_file_line", "version_hash", "harness_id", "commit", "loader_assembler_config", "action_schema", "candidate_layers", "complete_mediation_status", "evidence_method", "reviewer", "validation_status", "code_seed_env_hashes", "correction_log_pointer", "row_kind", "mediation_evidence"],
+      "mediation_evidence_rule": "REQUIRED. A pointer to the artifact + hash proving the enforcement-point vacuum (e.g. the F1-FAIL verdict). assertion NO-EP-MEDIATION-EVIDENCE-REQUIRED — a row asserting 'no enforcement layer' without evidence is inadmissible, symmetric to a collision-found row without a witness hash.",
+      "structural_verdict_rule": "MUST be EMPTY/absent — NOT 'unresolved'. assertion NO-EP-VERDICT-EMPTY. 'unresolved' = analysis-deferred (delivery-only); 'no-enforcement-point' = nothing-to-analyze (no layer exists). Conflation pollutes verdict statistics.",
+      "analyzed_layer_rule": "MUST be empty/absent (three-way CF-2 coupling: (delivery-only ∨ no-enforcement-point) ⟹ analyzed_layer empty).",
+      "forbidden": ["pi_L_field_list", "pi_L_canonical_bytes", "oracle_required_variables", "per_variable_visibility", "witness_pair_status", "witness_artifact_hash", "structural_verdict"],
+      "forbidden_rule": "any representation-analysis field OR structural_verdict APPEARING (key present, regardless of value) rejects the row — assertions NO-EP-NO-REPR (representation set) + NO-EP-VERDICT-EMPTY (structural_verdict). No layer exists to represent or resolve anything.",
+      "permitted_absent": ["applicability", "oracle_sketch", "grounding_class", "grounding_matched_test", "grounding_evidence_span", "grounding_confidence", "delivery_present", "delivery_sound", "delivery_correctly_bound", "delivery_failure_family"],
+      "note": "The delivery group is permitted-absent here (the finding is the vacuum, carried by mediation_evidence, not a delivery event). If a grounding_* field IS present it is still enum/consistency-checked."
+    }
+  },
+  "row_kind_anti_proliferation_rule": {
+    "rule": "A new row_kind may be added ONLY when a real, existing observation cannot be honestly held by any current row_kind (evidenced by a concrete row that trips required-field or forbidden-field assertions with no honest fill under every existing kind). Speculative or 'reserve for later' row_kinds are REFUSED. Each added kind must be accompanied by (a) the triggering real row and (b) a Standing_Correction_Log entry.",
+    "why": "row_kind is a small, load-bearing discriminator; if it becomes a junk drawer of speculative categories, the (constraint × analyzed_layer) granularity and the verdict/coupling statistics lose meaning. The R3=B (delivery-only) and R4 (no-enforcement-point) additions each satisfy this rule: delivery-only was triggered by the real HERMES-TRUNC-46823 row, no-enforcement-point by the real AITRADER-SCOPE-FIDELITY row.",
+    "triggering_rows": {"delivery-only": "HERMES-TRUNC-46823", "no-enforcement-point": "AITRADER-SCOPE-FIDELITY"},
+    "correction_log": "Standing_Correction_Log.md ROW-KIND-ANTI-PROLIFERATION"
+  },
+  "enum_constraints": {
+    "row_kind": ["constraint-audit", "delivery-only", "no-enforcement-point"],
+    "analyzed_layer": ["model", "guard"],
+    "delivery_failure_family": ["omission", "weakening", "misbinding", "none"],
+    "per_variable_visibility_values": ["visible", "missing", "proxied"],
+    "structural_verdict": ["fully-representable", "collision-found", "unresolved"],
+    "evidence_method": ["static-inspection", "executable-trace", "exact-census", "sampled"]
+  },
+  "per_variable_visibility_semantics": {
+    "reading": "pi_L CAPABILITY",
+    "definition": "per_variable_visibility[v] records whether the oracle-required variable v is EXPRESSIBLE in the layer's representation function pi_L — i.e. what the layer's enforcement code CAN read at decision time (its input space, globals, registries, and side channels), NOT whether a particular delivered instance happened to contain it.",
+    "anchor": "QEMC_v0_1_1.md P3 (pi_L capability definition) and the witness-protocol threat-to-validity item 2 ('audit what the guard CAN read'). Pinned on the frozen QEMC bytes so downstream annotators cannot re-elect a reading.",
+    "why": "Delivered-instance loss is a DELIVERY failure and is carried by the delivery group (delivery_present/sound/correctly_bound/failure_family). Reading per_variable_visibility as delivered-instance presence would fold a delivery failure into the representation verdict and erase the very two-axis separation block five exists to make. Under the capability reading, SMI-SCOPE-01@model has scope_clause_text=visible (free-text model context CAN hold any clause; the native [:10000] truncation is a delivery=omission, recorded separately) while SMI-SCOPE-01@guard has signal_provenance=missing (OrderIntent/check_mandate has no such field to read) => structural collision-found.",
+    "enum_values": {"visible": "expressible in pi_L", "missing": "not in pi_L's readable space at this layer", "proxied": "not directly readable but recoverable via a documented proxy in pi_L"}
+  },
+  "layer_B_required_additional_fields": ["mu_definition", "sampling_unit", "P_Y1", "exclusion_table", "fiber_census_or_hash", "guard_replay_linkage"],
+  "layer_B_estimand_output_fields": ["Q3_output", "Q4_output", "Q5_output", "Q6_output", "Q7_output", "Q8_output", "Q9_output", "Q10_output"],
+  "layer_B_row_kind_rule": "A Layer-B row MUST be row_kind='constraint-audit' (neither delivery-only nor no-enforcement-point observations have controlled execution to quantify). assertion_id: LAYER-B-CONSTRAINT-AUDIT-ONLY.",
+  "identification_label_enum": ["exact-census", "interval", "bootstrap-CI"],
+  "identification_label_rule": {
+    "rule": "Every present-and-non-null Q*_output on a Layer-B row MUST be an object carrying key 'identification' whose value is in identification_label_enum. Q7_output ADDITIONALLY admits the value 'degenerate' (§5 ε-rule: when R*_0 − R*_L ≤ ε the cell is capacity-degenerate and 'degenerate' is a legitimate identification of the output, not a missing value).",
+    "why": "QEMC §9 line 263 requires 'Q3–Q10 outputs WITH identification labels (exact-census / interval / CI)'. §6 D4 uses bootstrap 95% intervals for sampled cells and marks census cells 'exact-census'; 'CI' is materialized here as 'bootstrap-CI'. This closes the §6-D1 wording-lock machine-gap: the wording lock forbids an unlabeled floor number in the paper, so the validator must forbid an unlabeled Q output in the table.",
+    "label_key": "identification",
+    "q7_extra_value": "degenerate",
+    "assertion_id": "ID-LABEL-REQUIRED"
+  },
+  "firewall": {
+    "rule": "A row with layer=='A' (any row_kind) MUST NOT carry any field in (layer_B_required_additional_fields ∪ layer_B_estimand_output_fields) present-and-non-null. Any such field on a Layer-A row is a schema_violation.",
+    "why": "This is the firewall that stops static statement-classification from masquerading as quantitative enforceability measurement (QEMC §9). Encoded here as a machine assertion, not a memo.",
+    "assertion_id": "FW-A-NO-B-FIELDS"
+  },
+  "new_assertions_v0_1_2": {
+    "DELIVERY-ONLY-NO-REPR": "row_kind='delivery-only' AND any representation_analysis_fields key APPEARS (present, any value) => reject.",
+    "DELIVERY-ONLY-IDENTITY-REQUIRED": "row_kind='delivery-only' with any constraint_identity_fields member absent => reject (identity is what separates a delivery-only ROW from delivery noise).",
+    "DELIVERY-ONLY-STRUCT-UNRESOLVED": "row_kind='delivery-only' AND structural_verdict != 'unresolved' => reject.",
+    "CF2-LAYER-ROWKIND-COUPLING": "bidirectional: (row_kind='delivery-only' AND analyzed_layer present-non-empty) => reject; (row_kind='constraint-audit' AND analyzed_layer absent/empty) => reject; constraint-audit analyzed_layer must also be a member of candidate_layers.",
+    "LAYER-B-CONSTRAINT-AUDIT-ONLY": "layer='B' AND row_kind != 'constraint-audit' => reject."
+  },
+  "new_assertions_v0_1_3": {
+    "NO-EP-IDENTITY-REQUIRED": "row_kind='no-enforcement-point' with any constraint_identity_fields member absent => reject.",
+    "NO-EP-NO-REPR": "row_kind='no-enforcement-point' AND any representation_analysis_fields key APPEARS (present, any value) => reject (no layer exists to represent anything).",
+    "NO-EP-VERDICT-EMPTY": "row_kind='no-enforcement-point' AND structural_verdict key APPEARS (present, any value incl. 'unresolved') => reject. Nothing-to-analyze must not be encoded as analysis-deferred.",
+    "NO-EP-MEDIATION-EVIDENCE-REQUIRED": "row_kind='no-enforcement-point' AND mediation_evidence absent/empty => reject.",
+    "CF2-LAYER-ROWKIND-COUPLING-3WAY": "extends the v0.1.2 coupling to three-way: (row_kind='no-enforcement-point' AND analyzed_layer present-non-empty) => reject; the two empty-layer kinds (delivery-only, no-enforcement-point) are distinguished by their evidence fields (delivery group vs mediation_evidence), NOT by analyzed_layer."
+  }
+}

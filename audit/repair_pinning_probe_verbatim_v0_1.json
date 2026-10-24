@@ -1,0 +1,43 @@
+{
+  "probe_id": "REPAIR-1-PINNING-VERBATIM-v0.1",
+  "role": "constructed authoring-level mitigation probe; deterministic; pinned snapshot bytes untouched (variant built in memory); payload byte-verbatim duplicate of authored terminal line -> position-only attribution",
+  "supersedes_for_paper": "repair_pinning_probe_v0_1.json (distillation payload; kept frozen)",
+  "commit": "dddf96e35d511328b44a4307df0fb1cf49433e8d",
+  "skill": "social-media-intelligence",
+  "intervention": "duplicate the authored terminal line (SKILL.md:1295) verbatim to the first line of the body; one authoring line; zero new wording",
+  "pipeline": "identical to smi_probe_frozen_v0_1 (real parser/wrapper/serializer/slice)",
+  "payload": {
+    "verbatim": true,
+    "text": "*Version: v1.0 | Created: 2026-03-29 | Scope: quantitative research / factor mining (not for direct live-trading signals)*",
+    "cp": 122,
+    "source": "SKILL.md:1295 (terminal line of body)",
+    "byte_identity_assert": "terminal_line == EXPECTED_TERMINAL_LINE (raw-string equality)"
+  },
+  "cross_lock": {
+    "raw_sha256_bytes": "ef47bebc4872403be09d44569cf7ae77fed17100a7b1641d83f44d64afb81083",
+    "baseline_a1_full_sha256": "92b5a36630df0776578730b3c55a1850b8ad9a39d583ba12d878b0add3d9f54d",
+    "baseline_a1_native_sha256": "cf5a3d49f0c09e25315bbf8f95a3c2f81c60eeca8ab150c285fa381c873d321f",
+    "matches_frozen_probe": true
+  },
+  "baseline": {
+    "scope_in_a1_native": false,
+    "scope_offset_in_envelope_cp": 42629,
+    "envelope_cp": 42678
+  },
+  "repaired": {
+    "scope_in_a1_native": true,
+    "scope_phrase_offset_in_envelope_cp": 158,
+    "clause_offset_in_envelope_cp": 112,
+    "pinned_line_offset_in_envelope_cp": 73,
+    "envelope_cp": 42804,
+    "a1_full_sha256": "da1e264969e6e455b9fa6466b8704163084653ae5d7155c8fd884a4e56b6ddaa",
+    "a1_native_sha256": "9279c014c35acccadd8fe262157527229853a251f9dcace1d88808b27d6eda3f"
+  },
+  "flip": {
+    "scope_in_a1_native": [
+      false,
+      true
+    ]
+  },
+  "honesty": "This certifies AVAILABILITY repair only (delivery through materialization). It makes no claim about behavioral compliance (efficacy) and no claim about the guard layer, whose representational blindness is position-independent. Payload is a byte-verbatim duplicate of the authored terminal line, so the flip is attributable to position alone (no content change)."
+}

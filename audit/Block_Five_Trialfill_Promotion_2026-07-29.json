@@ -1,0 +1,33 @@
+{
+  "artifact": "Block-Five Trial-Fill Promotion to Evidence-Face (against SIGNED schema v0.1.3)",
+  "version": "1.0",
+  "created_utc": "2026-07-29",
+  "status": "PARTIAL — 7 of 8 rows promoted; 1 row (AITRADER-SCOPE-FIDELITY) held on the mediation-evidence owner-hash rider.",
+  "phase2_scope_guard": "zero LLM; deterministic re-verification against frozen bytes only.",
+  "pins": {
+    "signed_freeze": {"Block_Five_Schema_Freeze_Signed_2026-07-29.json": "e9cb5eac7f1760b7328b9be1f0bfcb729001856ab878092f9c556e6c5d5588d0"},
+    "frozen_companions": {
+      "block_five_schema_v0_1_3.json": "b07b366c93b0f729157c73f177c590cf68efc27c4dc76cf15c04fdc75b5ce41a",
+      "validate_block_five_schema_v0_1_3.py": "9fb1dac4f7f1ff708b9210d305b550d797d548e0b7ceeb6dd5d88e41bc0c072a",
+      "Block_Five_Schema_v0_1_3.md": "d95befcb1467a9629af22b09f88d532ae116a9308d5ceaf79880ac7fd26d4c87"
+    },
+    "trial_fill_batch": {"block_five_trialfill_batch1_v0_3.json": "4369f80956a885829a127da951a4bfe9e6e0861488bfc806c91c3b8d0416a997"}
+  },
+  "reverification": {
+    "command": "python3 validate_block_five_schema_v0_1_3.py block_five_trialfill_batch1_v0_3.json",
+    "result": "8 rows / 0 violations / 0 advisory flags — re-verified against the now-frozen schema bytes.",
+    "selftest": "validate_block_five_schema_v0_1_3.py --selftest => 32/32."
+  },
+  "rows": [
+    {"n": 1, "constraint_id": "SMI-SCOPE-01", "row_kind": "constraint-audit", "analyzed_layer": "model", "promotion": "PROMOTED"},
+    {"n": 2, "constraint_id": "SMI-SCOPE-01", "row_kind": "constraint-audit", "analyzed_layer": "guard", "promotion": "PROMOTED"},
+    {"n": 3, "constraint_id": "RG-SCOPE-01", "row_kind": "constraint-audit", "analyzed_layer": "model", "promotion": "PROMOTED"},
+    {"n": 4, "constraint_id": "RG-SCOPE-01", "row_kind": "constraint-audit", "analyzed_layer": "guard", "promotion": "PROMOTED"},
+    {"n": 5, "constraint_id": "MANDATE-NOTIONAL-CAP", "row_kind": "constraint-audit", "analyzed_layer": "guard", "promotion": "PROMOTED"},
+    {"n": 6, "constraint_id": "MANDATE-TRADES-PER-DAY", "row_kind": "constraint-audit", "analyzed_layer": "guard", "promotion": "PROMOTED"},
+    {"n": 7, "constraint_id": "HERMES-TRUNC-46823", "row_kind": "delivery-only", "analyzed_layer": null, "promotion": "PROMOTED", "note": "clean analysis-absent delivery-only after HERMES-FRAGMENT delete; grounding keys zero-residual; structural_verdict='unresolved'."},
+    {"n": 8, "constraint_id": "AITRADER-SCOPE-FIDELITY", "row_kind": "no-enforcement-point", "analyzed_layer": null, "promotion": "HELD", "gate": "mediation_evidence_owner_hash_rider (Block_Five_Schema_Freeze_Signed_2026-07-29.json)", "preflight_assertion": "assert owner-side sha256(ai_trader_fcheck_verdicts_v0_1.json) == '799c1a326ac498c13a52591091520b369f8bd394ec4c96c88758f8a7f7cc2882'", "note": "Schema-valid now; withheld from evidence-face ONLY because its mediation_evidence artifact is not yet owner-mounted/owner-hashed. Discharges next sync (single file), recorded in a subsequent promotion delta pinning e9cb5eac.."}
+  ],
+  "promotion_summary": {"promoted": 7, "held": 1, "held_reason": "mediation-evidence owner-hash pending (non-blocking for the freeze; blocking for this one row)"},
+  "self_check": "Re-verified 8/0/0 against frozen bytes (not asserted); selftest 32/32; 7 constraint-audit + delivery-only rows promoted; AITRADER no-enforcement-point row HELD behind the owner-hash preflight assertion (NO-EP-MEDIATION-EVIDENCE-REQUIRED spirit), discharge deferred to next sync in a subsequent delta (HR-2: not written back into the SIGNED freeze). Signed freeze e9cb5eac + companions + batch pinned; no frozen byte touched; no LLM/network/budget."
+}

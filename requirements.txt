@@ -1,0 +1,6 @@
+# Only the live-guard stage needs a third-party package: construct_sleeve_breach_episode.py
+# imports the pinned upstream pre-trade guard, whose module tree imports pandas.
+# Everything else in audit/ runs on the Python standard library (>= 3.9).
+#
+# Any reasonably recent pandas works; the version verified for this release is noted.
+pandas>=2.0        # verified with 3.0.5

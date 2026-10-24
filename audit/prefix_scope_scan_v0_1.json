@@ -1,0 +1,60 @@
+{
+  "scan_id": "PREFIX-SCOPE-SCAN-v0.1",
+  "commit": "dddf96e35d511328b44a4307df0fb1cf49433e8d",
+  "skill": "social-media-intelligence",
+  "target": "A1-Native surviving prefix, envelope[:10000] (cp slice)",
+  "prefix_sha256": "cf5a3d49f0c09e25315bbf8f95a3c2f81c60eeca8ab150c285fa381c873d321f",
+  "cross_locked_against": "smi_probe_frozen_v0_1.json",
+  "lexicon": [
+    "\\bnot for\\b",
+    "\\bnot to be\\b",
+    "\\bmust not\\b",
+    "\\bdo not\\b",
+    "\\bdon'?t\\b",
+    "\\bnever\\b",
+    "\\bno live\\b",
+    "\\bprohibit",
+    "\\bforbidden\\b",
+    "\\bdisallow",
+    "\\bresearch[- ]only\\b",
+    "\\bonly for\\b",
+    "\\bsolely\\b",
+    "\\brestrict",
+    "\\bscope\\b",
+    "\\bshould not\\b",
+    "\\bcannot be used\\b",
+    "\\bnot intended\\b",
+    "\\bnot a\\b.{0,40}signal",
+    "\\blive[- ]trading\\b",
+    "\\bcaution\\b",
+    "\\bwarning\\b",
+    "\\bdisclaimer\\b",
+    "\\blimitation"
+  ],
+  "prefix_hits_raw": [
+    {
+      "pattern": "\\bnot for\\b",
+      "match": "not for",
+      "offset_cp": 1626,
+      "context": "---|---------|\\n| Signal channels | Specific buy/sell levels, stop-loss / take-profit | Use as a sentiment thermometer, not for blind copy-trading |\\n| Research push channels | Institutional PDF reports, on-chain data | Aggregate information and e"
+    }
+  ],
+  "frontmatter_meta_hits_raw": [],
+  "classification_note": "Every raw hit above is listed verbatim for audit. RESTRICTIVE = limits downstream use of skill output; NON-RESTRICTIVE otherwise. Classification recorded below after human read of contexts.",
+  "classification": {
+    "prefix_hit_@1626": {
+      "verbatim": "Use as a sentiment thermometer, not for blind copy-trading",
+      "context_unit": "per-channel row of the source-channel table (Signal channels)",
+      "class": "RESTRICTIVE-NARROW / NON-EQUIVALENT",
+      "reason": "Channel- and act-scoped caveat: warns against blind copy-trading of specific buy/sell levels from signal channels. Does not restrict the downstream trading use of the skill's own sentiment output; in particular it does not cover the witness's violating act (order justified solely by a raw sentiment reading, no copied levels)."
+    },
+    "operational_definition_authoritative": "A skill-level declaration restricting the downstream trading use of the skill's output (as opposed to channel-scoped caveats, data-governance/API compliance rules, or capability descriptions).",
+    "full_envelope_landscape": {
+      "total_lexicon_hits": 9,
+      "prefix_hits": 1,
+      "truncated_zone_hits": "compliance/privacy data-handling rules (@12461-12972, also truncated) + the terminal authoritative clause (@42583-42678)",
+      "note_incidental": "The skill's compliance-and-privacy section (API ToS, PII storage rules) is ALSO past the 10,000-cp cut and therefore also absent from native materialization; recorded as incidental observation, not used in the paper's primary claim."
+    },
+    "verdict": "SOLE-AUTHORITATIVE HOLDS: zero semantically equivalent restrictions on trading use of skill output in the surviving prefix; the one prefix hit is disclosed and classified non-equivalent."
+  }
+}

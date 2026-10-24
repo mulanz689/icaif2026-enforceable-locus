@@ -1,0 +1,34 @@
+{
+  "adjudication_id": "PREFIX-MANUAL-ADJ-v0.1",
+  "date": "2026-08-06",
+  "commit": "dddf96e35d511328b44a4307df0fb1cf49433e8d",
+  "target": "A1-Native surviving prefix, envelope[:10000] (cp slice), social-media-intelligence",
+  "prefix_sha256": "cf5a3d49f0c09e25315bbf8f95a3c2f81c60eeca8ab150c285fa381c873d321f",
+  "prefix_rebuilt_this_session": true,
+  "rebuild_method": "snapshot frontmatter parser -> get_content XML wrap -> json.dumps ensure_ascii=False -> [:10000]; sha256 byte-matched frozen probe a1_native_sha256",
+  "method": "complete human read of all 10,000 code points against the operational definition of 'authoritative' frozen in prefix_scope_scan_v0_1.json (skill-level declaration restricting downstream trading use of the skill's output)",
+  "adjudicator": "single adjudicator, this session; no second reader, no kappa (disclosed)",
+  "findings": {
+    "restrictive_on_downstream_trading_use_of_skill_output": [],
+    "sole_lexical_hit_cp1626": {
+      "verbatim": "Use as a sentiment thermometer, not for blind copy-trading",
+      "class": "RESTRICTIVE-NARROW / NON-EQUIVALENT",
+      "three_independent_reasons": {
+        "a_level": "channel-scoped operational caveat (Signal-channels row of the source-channel table), not a skill-level authorization boundary",
+        "b_speech_act": "diligence admonition on HOW an order is derived (satisfiable by a careful, non-copied order); smi-scope-01 is a categorical prohibition on a USE CLASS (not satisfiable by any live-trading order)",
+        "c_non_substitutability": "the constructed witness order copies no channel price level, hence COMPLIES with the caveat while VIOLATING smi-scope-01; perfect adherence to the surviving caveat leaves the witness act permitted"
+      }
+    },
+    "non_restrictive_candidates_reviewed": [
+      "'high manipulation risk' (Crypto KOL row) - signal-quality description",
+      "'Contrarian signal value at extremes' - signal-quality description",
+      "'Potential alpha, but requires filtering' - information-quality advisory",
+      "'Best for: production environments where compliance is the priority' - tooling-choice note (Twitter API v2)",
+      "'Best for: research / historical backtesting' - tooling-choice note (ntscraper); characterizes the TOOL, not the skill's output use",
+      "collection-frequency suggestions, data schemas, code samples - operational content, no authorization semantics"
+    ],
+    "prefix_end": "cut falls mid-sentence in section 2.4 (Reddit collection, 'PRAW - off...'), consistent with frozen probe"
+  },
+  "verdict": "MANUAL ADJUDICATION CONFIRMS LEXICAL SCREEN: no passage in the complete surviving prefix restricts the downstream trading use of the skill's output; sole-authoritative premise HOLDS under both instruments.",
+  "paper_use": "supports the sentence in Sec 5.1: 'we manually adjudicated the complete surviving prefix against the operational definition; no other passage restricts the downstream trading use of the skill's output.'"
+}

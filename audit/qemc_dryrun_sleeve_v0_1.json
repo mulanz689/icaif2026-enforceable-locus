@@ -1,0 +1,47 @@
+{
+  "cell": "SLEEVE-BREACH-CONSTRUCTED-01",
+  "layer": "guard",
+  "mu": "mu_design",
+  "population": {
+    "N": 2,
+    "N_violation": 1,
+    "N_compliant": 1,
+    "excluded": 0,
+    "conservation_N_plus_excluded_eq_raw": true
+  },
+  "fibers": {
+    "Z*": {
+      "n0": 1,
+      "n1": 1
+    }
+  },
+  "Q1_structural_verdict": "collision-found",
+  "Q2_bridge": {
+    "status": "SATISFIED",
+    "fiber_mass": 1.0,
+    "n_z0": 1,
+    "n_z1": 1,
+    "eta": 0.5
+  },
+  "Q3_Rhat_star_guard": 0.5,
+  "Q3_identification": "exact-census",
+  "Q5_R_star_0": 0.5,
+  "Q5_representational_capacity": 0.0,
+  "Q6_R_actual": 0.5,
+  "Q7_algorithmic_gap": 0.0,
+  "Q7_capacity_utilization": "capacity-degenerate",
+  "Q4_FNR_star_randomized": {
+    "0.01": 0.99,
+    "0.05": 0.95,
+    "0.10": 0.9
+  },
+  "Q4_FNR_star_deterministic": 1.0,
+  "Q8_rho_guard": 0.0,
+  "_provenance": {
+    "episode": "sleeve_breach_episode_v0_1.json",
+    "episode_sha256": "7872a8dde180ac986c8e9c88bb9a47e61b45b31fb6c5ef57485fab656a7dd507",
+    "freeze_artifact": "QEMC_Freeze_Signed_2026-07-29.json",
+    "freeze_sha256": "2428221066d252f09a96c607254d5de967795dc2dbf3011947f255b2ab3df8d0",
+    "qemc_v0_1_1_sha256": "9535e9f79100a17d20fac5f70685b127e2f5df2829da9e86cee382173e4f76e9"
+  }
+}

@@ -1,0 +1,60 @@
+cff-version: 1.2.0
+message: "If you use this artifact, please cite the paper."
+title: "When No Enforceable Locus Exists: reproduction artifact"
+abstract: >-
+  Deterministic, model-independent reproduction package for the ICAIF '26 paper
+  "When No Enforceable Locus Exists: Availability and Representability in a
+  Financial AI Agent Stack". Reproduces every confirmatory claim with zero model
+  calls against a pinned open-source financial agent stack.
+type: software
+license: MIT
+version: 1.0.0
+date-released: "2026-10-23"
+authors:
+  - family-names: "Zhou"
+    given-names: "Mulan"
+  - family-names: "Xue"
+    given-names: "Yan"
+repository-code: "https://github.com/mulanz689/icaif2026-enforceable-locus"
+keywords:
+  - AI agents
+  - constraint enforceability
+  - decision loci
+  - representability
+  - context materialization
+  - financial agents
+  - pre-trade guards
+  - LLM safety
+preferred-citation:
+  type: conference-paper
+  title: >-
+    When No Enforceable Locus Exists: Availability and Representability in a
+    Financial AI Agent Stack
+  authors:
+    - family-names: "Zhou"
+      given-names: "Mulan"
+    - family-names: "Xue"
+      given-names: "Yan"
+  collection-title: >-
+    Proceedings of the 7th ACM International Conference on AI in Finance
+    (ICAIF '26)
+  conference:
+    name: "7th ACM International Conference on AI in Finance"
+    city: "Milan"
+    country: "IT"
+  year: 2026
+  month: 11
+  publisher:
+    name: "Association for Computing Machinery"
+  url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7618438"
+references:
+  - type: software
+    title: "Vibe-Trading: Your Personal Trading Agent"
+    authors:
+      - name: "HKUDS"
+    repository-code: "https://github.com/HKUDS/Vibe-Trading"
+    license: MIT
+    notes: >-
+      System under audit. Pinned commit dddf96e35d511328b44a4307df0fb1cf49433e8d;
+      a subset is vendored under audit/snapshots/Vibe-Trading/. See
+      THIRD_PARTY_NOTICES.md.
