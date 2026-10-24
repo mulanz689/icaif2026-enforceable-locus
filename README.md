@@ -78,9 +78,14 @@ diagnostics/                pre-run behavioral diagnostics, excluded from infere
 ```
 
 The manuscript is not redistributed here. The paper is accepted for publication at
-ICAIF '26 (ACM) and is in press; the conference takes place 14–17 November 2026. The
-DOI recorded by the authors is `10.1145/3858063.3858819`, which does not resolve at the
-time of writing. `CITATION.cff` carries the full citation metadata and marks the
+ICAIF '26 (ACM) and is in press; the conference takes place 14–17 November 2026.
+
+- **Read the paper:** https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7618438 (SSRN)
+- **DOI:** `10.1145/3858063.3858819`, recorded by the authors. ACM registers conference
+  DOIs when the proceedings are published, so this does not resolve at the time of
+  writing.
+
+`CITATION.cff` carries the full citation metadata, lists the SSRN URL, and marks the
 publication status as `in-press`.
 
 ## Design notes

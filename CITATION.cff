@@ -8,7 +8,7 @@ abstract: >-
   calls against a pinned open-source financial agent stack.
 type: software
 license: MIT
-version: 1.0.2
+version: 1.0.3
 date-released: "2026-10-24"
 authors:
   - family-names: "Zhou"
