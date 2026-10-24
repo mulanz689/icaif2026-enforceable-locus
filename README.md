@@ -77,9 +77,11 @@ audit/                      reproducers and frozen evidence (flat: scripts resol
 diagnostics/                pre-run behavioral diagnostics, excluded from inference
 ```
 
-The manuscript is not redistributed here. The paper is published by the ACM as
-`doi:10.1145/3858063.3858819` (resolves once the ICAIF '26 proceedings go live in
-November 2026); `CITATION.cff` carries the full citation metadata.
+The manuscript is not redistributed here. The paper is accepted for publication at
+ICAIF '26 (ACM) and is in press; the conference takes place 14–17 November 2026. The
+DOI recorded by the authors is `10.1145/3858063.3858819`, which does not resolve at the
+time of writing. `CITATION.cff` carries the full citation metadata and marks the
+publication status as `in-press`.
 
 ## Design notes
 
