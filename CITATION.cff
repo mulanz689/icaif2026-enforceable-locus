@@ -8,13 +8,15 @@ abstract: >-
   calls against a pinned open-source financial agent stack.
 type: software
 license: MIT
-version: 1.0.0
+version: 1.0.1
 date-released: "2026-10-23"
 authors:
   - family-names: "Zhou"
     given-names: "Mulan"
+    affiliation: "University of California, San Diego"
   - family-names: "Xue"
     given-names: "Yan"
+    affiliation: "Instinctive Network"
 repository-code: "https://github.com/mulanz689/icaif2026-enforceable-locus"
 keywords:
   - AI agents
@@ -33,8 +35,10 @@ preferred-citation:
   authors:
     - family-names: "Zhou"
       given-names: "Mulan"
+      affiliation: "University of California, San Diego"
     - family-names: "Xue"
       given-names: "Yan"
+      affiliation: "Instinctive Network"
   collection-title: >-
     Proceedings of the 7th ACM International Conference on AI in Finance
     (ICAIF '26)
@@ -42,10 +46,16 @@ preferred-citation:
     name: "7th ACM International Conference on AI in Finance"
     city: "Milan"
     country: "IT"
+    date-start: "2026-11-14"
+    date-end: "2026-11-17"
   year: 2026
   month: 11
   publisher:
     name: "Association for Computing Machinery"
+    city: "New York"
+    country: "US"
+  doi: "10.1145/3858063.3858819"
+  pages: 8
   url: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=7618438"
 references:
   - type: software

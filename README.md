@@ -77,8 +77,9 @@ audit/                      reproducers and frozen evidence (flat: scripts resol
 diagnostics/                pre-run behavioral diagnostics, excluded from inference
 ```
 
-The manuscript is not redistributed here. See the ACM Digital Library entry for
-ICAIF '26 for the paper itself; `CITATION.cff` carries the citation metadata.
+The manuscript is not redistributed here. The paper is published by the ACM as
+`doi:10.1145/3858063.3858819` (resolves once the ICAIF '26 proceedings go live in
+November 2026); `CITATION.cff` carries the full citation metadata.
 
 ## Design notes
 
